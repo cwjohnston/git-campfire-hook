@@ -27,7 +27,7 @@ class GitCampfireNotification
 
   def campfire_room
     if @campfire.nil?
-      @campfire = Tinder::Campfire.new(@campfire_config[:subdomain], :username => @campfire_config[:username], :password => @campfire_config[:password], :ssl => @campfire_config[:use_ssl])
+      @campfire = Tinder::Campfire.new(@campfire_config[:subdomain], :username => @campfire_config[:username], :password => @campfire_config[:password], :ssl => @campfire_config[:ssl])
     end
     @campfire_room ||= @campfire.find_room_by_name(@campfire_config[:room])
   end
