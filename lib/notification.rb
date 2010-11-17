@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'tinder'
+require 'uri'
 
 class GitCampfireNotification
 
@@ -27,7 +28,7 @@ class GitCampfireNotification
 
   def campfire_room
     if @campfire.nil?
-      @campfire = Tinder::Campfire.new(@campfire_config[:subdomain], :username => @campfire_config[:username], :password => @campfire_config[:password], :ssl => @campfire_config[:ssl])
+      @campfire = Tinder::Campfire.new(@campfire_config[:subdomain], :token => @campfire_config[:token])
     end
     @campfire_room ||= @campfire.find_room_by_name(@campfire_config[:room])
   end
